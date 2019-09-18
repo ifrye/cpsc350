@@ -1,6 +1,7 @@
 CREATE DATABASE workshop;
 \c workshop
 
+DROP TABLE IF EXISTS workshops;
 CREATE TABLE workshops (
 	id serial PRIMARY KEY,
 	workshop text NOT NULL,
