@@ -2,22 +2,22 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-app.set("port", 3000);
+app.set("port", (process.env.NODE_PORT));
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const Pool = require("pg").Pool;
 const config = {
 	host: "localhost",
-	user: "workshop",
-	password: "F6cSGqJb#8^5",
+	user: "new",
+	password: "newpass",
 	database: "workshop"
 };
 
 const pool = new Pool(config);
 
 app.get("/hello", (req, res) => {
-	res.json("Hello World");
+	res.json("Hello!");
 });
 
 
@@ -46,6 +46,7 @@ app.get("/api", async (req, res) => {
 			}
 	}
 	} catch (err) {
+		console.log(err);
 		res.json({ status: "error" });
 	}
 });
