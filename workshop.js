@@ -2,7 +2,11 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-app.set("port", (process.env.NODE_PORT));
+<<<<<<< HEAD
+app.set("port", 8080);
+=======
+app.set("port", 8080);
+>>>>>>> cc5f701bf928ce71fd242ea70fcb4ecae981cf28
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
