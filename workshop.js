@@ -9,8 +9,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const Pool = require("pg").Pool;
 const config = {
 	host: "localhost",
-	user: "workshop",
-	password: "F6cSGqJb#8^5",
+	user: "new",
+	password: "newpass",
 	database: "workshop"
 };
 
