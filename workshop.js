@@ -2,11 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-<<<<<<< HEAD
 app.set("port", 8080);
-=======
-app.set("port", 8080);
->>>>>>> cc5f701bf928ce71fd242ea70fcb4ecae981cf28
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -21,19 +17,22 @@ const config = {
 const pool = new Pool(config);
 
 app.get("/hello", (req, res) => {
-	res.json("Hello!");
+	res.json("Hello World");
 });
 
 
 //GET attendees of a certain workshop
 app.get("/api", async (req, res) => {
 	try {
-		
+		console.log("before if");
 		if (!req.query.workshop){
 			const template = "SELECT DISTINCT workshop FROM workshops";
-			const response = await pool.query(template);
+			console.log("after template");
+			const response = await pool.query(template);	
+			console.log("after query");
 			const workshopList = response.rows.map(function(item){
 				return item.workshop;
+			console.log("after query");
 			});
 			res.json({workshops: workshopList})
 		}
@@ -50,7 +49,6 @@ app.get("/api", async (req, res) => {
 			}
 	}
 	} catch (err) {
-		console.log(err);
 		res.json({ status: "error" });
 	}
 });
